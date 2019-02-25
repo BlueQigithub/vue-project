@@ -1,0 +1,38 @@
+<div>
+  <!-- 输入框查询框和添加按钮 -->
+  <el-row :gutter="20">
+    <el-col :span="8">
+      <el-input
+        placeholder="请输入内容"
+        v-model="input5"
+        class="input-with-select"
+      >
+        <el-button
+          slot="append"
+          icon="el-icon-search"
+          @click="startQuery"
+        ></el-button>
+      </el-input>
+    </el-col>
+    <el-col :span="3">
+      <el-button>添加用户</el-button>
+    </el-col>
+  </el-row>
+  <!-- 表格信息 -->
+  <el-table :data="listData">
+    <el-table-column prop="username" label="姓名" width="180"></el-table-column>
+    <el-table-column prop="email" label="邮箱" width="180"></el-table-column>
+    <el-table-column prop="mobile" label="电话" width="180"></el-table-column>
+    <el-table-column label="用户状态" width="180"></el-table-column>
+    <el-table-column label="操作"></el-table-column>
+  </el-table>
+
+  <!-- 分页 -->
+  <el-pagination
+    background
+    layout="prev, pager, next"
+    :total="total"
+    :page-size="2"
+    @current-change="pageChanged"
+  ></el-pagination>
+</div>
